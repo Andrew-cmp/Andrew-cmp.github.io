@@ -1,0 +1,1283 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-8.2.11">
+    
+    
+      
+        <title>verilog - OnePunchMan</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#verilog" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="OnePunchMan" class="md-header__button md-logo" aria-label="OnePunchMan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OnePunchMan
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              verilog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="OnePunchMan" class="md-nav__button md-logo" aria-label="OnePunchMan" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    OnePunchMan
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          c_cxx
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="c_cxx" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          c_cxx
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c%2B%2B/" class="md-nav__link">
+        c++面向对象
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          inferrence
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="inferrence" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          inferrence
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../inferrence/2024-2-28%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5%E4%B9%98%E7%9A%84%E4%B8%8B%E6%A0%87/" class="md-nav__link">
+        打印矩阵乘的下标
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          llvm_mlir
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="llvm_mlir" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          llvm_mlir
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llvm_mlir/2024-x-x-/" class="md-nav__link">
+        xxxx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/2024-2-2git%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/" class="md-nav__link">
+        Git设置代理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#verilog_1" class="md-nav__link">
+    verilog简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verilog_2" class="md-nav__link">
+    verilog 语法
+  </a>
+  
+    <nav class="md-nav" aria-label="verilog 语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    语法1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    语法2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    语法三
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    测试激励
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verilog_3" class="md-nav__link">
+    verilog基础
+  </a>
+  
+    <nav class="md-nav" aria-label="verilog基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    实例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fifofifo" class="md-nav__link">
+    同步FIFO和异步FIFO——面试必问(再看)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dc" class="md-nav__link">
+    DC综合
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="verilog">verilog<a class="headerlink" href="#verilog" title="Permanent link">&para;</a></h1>
+<h2 id="verilog_1">verilog简介<a class="headerlink" href="#verilog_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>verilog是一种并行执行的语言，不是所有的语句是并行走的，大部分语句是并行的，语句块中的语句可能也是串行的，</p>
+</li>
+<li>
+<p>verilog能力</p>
+</li>
+<li>描述电路的连接</li>
+<li>
+<p>描述电路的功能</p>
+</li>
+<li>
+<p>为什么使用verilog</p>
+</li>
+<li>设计能在高层次进行，与具体工艺和实现无关。</li>
+<li>
+<p>有一套完整的EDA流程使得verilog能够映射到具体工艺实现。</p>
+</li>
+<li>
+<p>场景</p>
+</li>
+<li>asic及fpga设计工程师用手编写可综合的RTL代码</li>
+<li>
+<p>用于搭建验证平台</p>
+</li>
+<li>
+<p>层次</p>
+</li>
+<li>算法级/行为级<ul>
+<li>主要是搭建测试环境，无法综合；如@，while，wait，repeat关键字</li>
+</ul>
+</li>
+<li>RTL级<ul>
+<li>绝大部分代码采用RTL级描述，可综合代码，也可以搭建测试环境 </li>
+</ul>
+</li>
+<li>门级<ul>
+<li>电路用and nand xor等门级单元组成，可以被追综合工具识别，基本上用不到。</li>
+</ul>
+</li>
+<li>
+<p>晶体管级</p>
+<ul>
+<li>电路有pmos和nmos等组成，不可以被综合工具所识别，只可以用来仿真（数字ic设计完全用不到）</li>
+</ul>
+</li>
+<li>
+<p>verilog实例</p>
+</li>
+<li>模块名字 端口定义 端口I/O说明 信号类型声明 功能描述   </li>
+<li>二维数组，一般用在memory input [3:0] a [1:0]，前面是位宽，后面是数组</li>
+<li>端口等价于器件引脚，模块名称等效于器件名称</li>
+<li>
+<p>测试模块没有输入输出端口，产生各种激励给DUT design and test</p>
+</li>
+<li>
+<p>verilog模板简介</p>
+</li>
+<li>
+<p>assign是连续赋值a =b+c只要b变化，a就会变化。 </p>
+</li>
+<li>
+<p>verilog命名规则</p>
+</li>
+<li>
+<p>各种名字都必须符合基本的命名规则，如模块名字、端口名字、变量名、常量名、实例化名字。命名只能有字母数字下划线和$符号组成，第一个字符必须是字母或者下划线。verilog会 区分大小写。</p>
+</li>
+<li>
+<p>简要的书写规范</p>
+</li>
+<li>常量尽可能多使用参数定义和宏定义，而不要直接在语句总直接使用字母、数字和字符串。</li>
+<li>
+<p>经验：一个文件下面只有一个module，module名字最好和文件名字一样。取的名字一般要有意义  </p>
+</li>
+<li>
+<p>linux</p>
+</li>
+<li>cd ~     cd -</li>
+<li>source</li>
+<li>linke</li>
+<li>$path</li>
+<li>tab自动补齐</li>
+<li>mv 改名 cp拷贝文件 左边都是源文件夹，右边都是目的文件夹</li>
+<li>gvim常用命令 命令模式 搜索模式 和insert模式   </li>
+</ul>
+<h2 id="verilog_2">verilog 语法<a class="headerlink" href="#verilog_2" title="Permanent link">&para;</a></h2>
+<h3 id="1">语法1<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>标识符的命名规则</li>
+<li>各种名字都必须符合基本的命名规则，如模块名字、端口名字、变量名、常量名、实例化名字。</li>
+<li>命名只能有字母数字下划线和$符号组成，第一个字符必须是字母或者下划线。</li>
+<li>verilog会 区分大小写。</li>
+<li>空白符由空格（\b),制表符和换行符组成，仅用来分隔标识符。</li>
+<li>也有转义符号，一般用于$display打印时。</li>
+<li>格式</li>
+<li>input[3:0] addr1, addr2;addr1和addr2都是四位宽的。</li>
+<li>四值逻辑</li>
+<li>1：</li>
+<li>0：</li>
+<li>X：不确定的逻辑状态，如reg未赋值，一般是前值时序有问题或者没有东西驱动它。</li>
+<li>Z：高阻态。输入没有任何东西驱动，如输入浮空。</li>
+<li>实际芯片之中一定是0或者1，不存在X态。</li>
+<li>数值类型:&lt;位宽&gt;‘&lt;基数&gt;&lt;按照基数表示的值 &gt;   6’10_1001</li>
+<li>二进制:B/b</li>
+<li>十进制:D/d</li>
+<li>十六进制:H/h</li>
+<li>端口类型</li>
+<li>input output inout(基本上不用，也不要用，是和三态门结合使用的)</li>
+<li>端口定义方法：端口类型 [msb:lsb]端口名称，msb，lsb必须是常数，lsb通常是0。不好的风格input [1:19] addr。</li>
+<li>线网型</li>
+<li>器件之前的物理连接线</li>
+<li>缺省值为Z</li>
+<li>用assign赋值</li>
+<li>模块实例化的输入输出端口。  </li>
+<li>其他线网型<ul>
+<li>tri</li>
+<li>wand</li>
+<li>wor</li>
+<li>supply1， supply2</li>
+<li>不可综合，知道就行</li>
+</ul>
+</li>
+<li>在assign赋值的时候，两端位宽不一样也能赋值，会把高位丢掉，但非常不建议这样写。</li>
+<li>寄存器型</li>
+<li>抽象的存储单元，并不是一个真的触发器，always和initial语句中被赋值</li>
+<li>缺省值为X </li>
+<li>因为需要在always语句块中赋值，所以才需要寄存器型的变量，因为在always语句块中可能变可能不变，所以仿真器才需要一小块内存存储它。而线网型一定会有驱动的。</li>
+<li>存储器<ul>
+<li>reg [msb:lsb]memory [lower:upper]，如reg[15:0]my_mem[1:64]///64个16位的寄存器</li>
+<li>可以用系统函数$readmemh一次性给memory赋值，一般测试会用到</li>
+</ul>
+</li>
+<li>总结</li>
+<li><strong>module内部输入默认是wire型，输出可以是wire或reg，默认都是wire。</strong></li>
+<li><strong>module外部实例化时，输入可以是wire/reg型，输出只能是wire型</strong></li>
+<li>module内部assign赋值的都是wire，always赋值都是reg </li>
+</ul>
+<h3 id="2">语法2<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>块赋值语句</p>
+</li>
+<li>
+<p>initial</p>
+<ul>
+<li>每次仿真0时刻开始时运行一次，并行执行。</li>
+<li>用begin，end把一个initial中的内容包起来，<strong>所有包在begin end里面的语句都是顺序执行的。</strong></li>
+<li>不可综合，用于产生测试激励</li>
+<li>可以有多个initial，在仿真0时刻同时运行，并行执行，不要在多个initial块中对同一个信号赋值。</li>
+<li>所有initial内部的变量必须是reg类型。</li>
+</ul>
+</li>
+<li>
+<p>always</p>
+<ul>
+<li>always@（敏感信号列表）begin end</li>
+<li>每个always之间并行执行</li>
+<li>begin..end之间的程序顺序执行</li>
+<li>敏感列表用or串接不同的信号。</li>
+<li>针对组合逻辑，always语句块的敏感列表必须是所有用到的输入信号，否则将无法综合  。always(*)只和always块内的信号有关，和其他块其他信号无关。</li>
+<li>一个信号只能在同一个always块内赋值，否则将不能综合。这是多驱问题，多驱问题在任何场景都不能出现。</li>
+<li>每个always块最好只对一个信号进行赋值，否则在不同控制条件下可能会出现漏掉某个信号的问题。</li>
+</ul>
+</li>
+<li>
+<p>条件分支——if语句</p>
+<ul>
+<li>用在块赋值语句always中，不能单独使用。</li>
+<li>如果最后没有写else，仿真器会自动写上 else out1=out1，相当于一个锁存器，保持不变。latch一般不用，电平敏感，时序不好确定。所以一定要写上else。</li>
+<li>条件判断有优先级，在前面的优先级高，优先级越高越靠近触发器。</li>
+</ul>
+</li>
+<li>
+<p>条件分支——case语句</p>
+<ul>
+<li>
+<p>当有很多条件分支的时候，使用case语句，适用于选择控制较多的情况，一般不具有优先级控制</p>
+</li>
+<li>
+<p>主要用来生成译码器和数据选择器。</p>
+</li>
+<li>
+<p>用在块赋值语句always中。</p>
+</li>
+<li>
+<p>case后面也要必须跟一个default，仿真器会自动写上 default out1=out1，又会出现锁存器。</p>
+</li>
+<li>
+<p>一般没有优先级，所有语句是并行，所有条件是互斥的。但如果各个条件之间不是互斥的，比如</p>
+</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">case</span><span class="p">(</span><span class="n">sel</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="mh">3</span><span class="p">&#39;</span><span class="n">b</span><span class="o">?</span><span class="mh">10</span><span class="o">:</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="mh">3</span><span class="mb">&#39;b0</span><span class="o">?</span><span class="mh">1</span><span class="o">:</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="mh">3</span><span class="mb">&#39;b01</span><span class="o">?:</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="k">default</span><span class="o">:</span><span class="w"> </span>
+</code></pre></div>
+</td></tr></table>
+<p>三种条件不互斥，会综合成优先编码器，不串行了，对会时序有要求。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">case</span><span class="p">(</span><span class="n">sel</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="mh">3</span><span class="p">&#39;</span><span class="n">b</span><span class="o">?</span><span class="mh">10</span><span class="o">:</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="mh">3</span><span class="mb">&#39;b0</span><span class="o">?</span><span class="mh">1</span><span class="o">:</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="mh">3</span><span class="mb">&#39;b00</span><span class="o">?:</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="k">default</span><span class="o">:</span><span class="w"> </span>
+</code></pre></div>
+</td></tr></table>
+<p>三种条件互斥，不会综合成优先编码器，所有条件并行比较，对时序没有要求。</p>
+</li>
+<li>
+<p>case语句的表达式的值有4中情况：0、1、z、x。4种是不同的，故表达式要严格的相等才可以操作分支语句。</p>
+<ul>
+<li>casez语句中的表达式情况有三种：0、1、x。不用关心z，z可以和任何数值相等，即z =0.z= 1,z=x;</li>
+<li>casex语句的表达式情况有二种：0、1.不用关心x和z。即x=z=0,x=z=1.</li>
+<li>另外表达式的值是按从上到下的顺序来与分支条件的比较，如果相等，则不再与下面的分支相比较而直接执行该分支的语句。</li>
+<li>就是因为case会认出每种情况，1/0/z/x，所以就得到了上面的结果。很是严格。如果使用了casez，看上面的casez的列表，只要输入有z/?的话，就能和任意匹配。casex也是从上到下匹配，当出现x/z/?的输入的时候，都不会care，只管不是大大情况来匹配。<a href="https://www.cnblogs.com/fhyfhy/p/4552387.html">case/casez/casex 的区分与使用 </a></li>
+</ul>
+</li>
+<li>
+<p>阻塞赋值</p>
+<ul>
+<li>所有的等号=都是阻塞赋值，都是组合逻辑。所有的箭头《= 都是非阻塞赋值，都是时序逻辑。</li>
+<li>always块敏感列表不存在上升沿下降沿时，证明是组合逻辑，用=赋值</li>
+<li>前面的赋值语句会阻塞后面的语句执行</li>
+<li>主要用在阻塞赋值。</li>
+</ul>
+</li>
+<li>
+<p>非阻塞赋值</p>
+<ul>
+<li>
+<p>只会用在时序逻辑中，always块敏感列表只有上升沿下降沿时，证明是时序逻辑，用《=赋值。</p>
+</li>
+<li>
+<p>当复位信号rst有后缀时，如rst_n rst_b证明低电平复位有效。</p>
+</li>
+<li>
+<p>一般分为同步复位和异步复位。</p>
+</li>
+<li>
+<p>基本使用D触发器写法，综合工具默认也选择是D触发器。 </p>
+</li>
+<li>
+<p>​    同步触发器</p>
+</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">always</span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="k">begin</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">rst_n</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">        </span><span class="n">q_reg</span><span class="o">&lt;=</span><span class="mh">1</span><span class="n">b</span><span class="m">&#39;0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="k">else</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span><span class="n">q_reg</span><span class="o">&lt;=</span><span class="n">in</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="k">end</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<ul>
+<li>异步触发器</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">always</span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">negedge</span><span class="w"> </span><span class="n">rst_n</span><span class="p">)</span><span class="k">begin</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">rst_n</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">        </span><span class="n">q_reg</span><span class="o">&lt;=</span><span class="mh">1</span><span class="n">b</span><span class="m">&#39;0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="k">else</span><span class="w"></span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="n">q_reg</span><span class="o">&lt;=</span><span class="n">in</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="k">end</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<p>这个rst一般是全局的rst，异步信号的时序很难控制，而且无法控制毛刺，因此自己写的时候一般只用全局的rst，自己写的时候用同步触发器。</p>
+</li>
+<li>
+<p>阻塞赋值和非阻塞赋值的区别</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">always</span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="k">begin</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">b</span><span class="o">=</span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="n">c</span><span class="o">=</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="n">d</span><span class="o">=</span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="k">end</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<p>这样的话只能综合出来一个触发器，bcd会同时变化，相当于同一个信号。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">always</span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="k">begin</span><span class="w"></span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">b</span><span class="o">&lt;=</span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="n">c</span><span class="o">&lt;=</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="n">d</span><span class="o">&lt;=</span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="k">end</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<p>这样的话就可以综合出来三个触发器，abcd会依次慢半拍，不会同步变化。</p>
+</li>
+</ul>
+<p><img alt="image-20230116144457727" src="C:\Users\xiaohou\AppData\Roaming\Typora\typora-user-images\image-20230116144457727.png" /></p>
+<p><img alt="image-20230116144436989" src="C:\Users\xiaohou\AppData\Roaming\Typora\typora-user-images\image-20230116144436989.png" /></p>
+<p><img alt="image-20230116145655954" src="C:\Users\xiaohou\AppData\Roaming\Typora\typora-user-images\image-20230116145655954.png" /></p>
+<ul>
+<li>总结</li>
+<li>一种是assign赋值，被赋值的信号要定义成wire类型。一种是always赋值，被赋值的信号要定义为reg类型，always块内可以是组合逻辑也可以是时序逻辑。</li>
+<li>一个always块最好只对一个信号赋值</li>
+<li>组合逻辑的敏感列表要写全，或者用*代替。不全的话不能综合。</li>
+<li>综合逻辑条件分支写全，否则会出现锁存器latch。</li>
+<li>case要加default</li>
+<li>组合逻辑always用阻塞赋值，时序逻辑always用非阻塞赋值，同一个always块中不要即用阻塞有用非阻塞赋值。</li>
+</ul>
+<h3 id="_1">语法三<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>连接和复制{}</li>
+<li>可以从不同向量选择位并组成一个新的向量。</li>
+<li>算术操作符</li>
+<li>不可综合</li>
+<li>如果操作数中的某一位是x，则结果为x。</li>
+<li>常用的wire和reg类型默认是无符号数。    </li>
+<li>按位操作符</li>
+<li>~  &amp;  |  ^    ~^（非，与，或，异或，同或）</li>
+<li>当两个操作数不同时，按位操作符零扩展到相同位数后在操作。</li>
+<li>一元规约操作符</li>
+<li>&amp;  |  ^  -^</li>
+<li>逻辑移位</li>
+<li>&lt;&lt;, &gt;&gt;</li>
+<li>空余部分补零</li>
+<li>算术移位</li>
+<li>算术右移高位补充符号位</li>
+<li>关系操作符  </li>
+<li>条件表达式</li>
+<li>condition？true_express:false_express</li>
+<li>优先级</li>
+</ul>
+<h3 id="_2">测试激励<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>两种过程语句：initial和always</li>
+<li>常见的函数</li>
+<li>`timescale time unit/time precision<ul>
+<li>后面的是时间精度，前面的是#10的单位，后面的一定小于前面的。</li>
+</ul>
+</li>
+<li>$display：显示中间结果的函数</li>
+<li>$finish</li>
+<li>$time：仿真器的当前运行时间，整型</li>
+<li>$realtime：仿真器的当前运行时间，实数型</li>
+<li>检查仿真结果</li>
+<li>打印log显示数值信息：方便直观观察结果，知道仿真是否通过更多用于大规模仿真检查结果，使用$display</li>
+<li>波形的方式：方便debug。<ul>
+<li>vcd波形</li>
+<li>对应dump*组的函数如dumpfile，dumpvars等。 </li>
+<li>fsdb波形（常用）</li>
+<li>对应fsdbdump*组的函数</li>
+</ul>
+</li>
+</ul>
+<h2 id="verilog_3">verilog基础<a class="headerlink" href="#verilog_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>timescale的添加方法</li>
+<li>每个module文件的开头都定义timescale</li>
+<li>vcs仿真器添加-timescale=1ns/1ps</li>
+<li>新建一个timescale文件，定义timescale。然后把他进入到flist</li>
+<li>实际中一般使用第二种或者第三种</li>
+<li>timescale只会在测试的时候才有用，设计的时候用处不大。</li>
+<li>删除后台进程</li>
+<li>top命令查看后台进程</li>
+<li>kill -9 PID删除进程</li>
+<li>simv是vcs的进程，novas是verdi的进程</li>
+<li>verdi库的基本使用</li>
+<li>vcs仿真器的基本使用</li>
+<li>define</li>
+<li>文本替换‘define</li>
+<li>作用<ul>
+<li>用一个简单的名字代替一个较长的字符串或表达式</li>
+<li>用一个有意义的符号代替一些无意义的字符串</li>
+</ul>
+</li>
+<li>用法：`define 字符串（宏名） 字符串（宏内容）</li>
+<li>是编译预处理语句，全局起作用 </li>
+<li>在一个地方定义了define，filelist的其他模块也会知道，所以要用的比较谨慎，一般用parameter   </li>
+<li>用法<ul>
+<li>定义一个dut_define类似的文件，并加入到filelist中一起编译</li>
+<li>在文件里面使用  </li>
+<li>vcs编译的时候也能用 +define+RTL_SIM</li>
+</ul>
+</li>
+<li>在某个模块里面可以使用undef可以解除define的作用</li>
+<li>parameter</li>
+<li>格式位：parameter 标识符=具体数值</li>
+<li>作用：定义一个当前module使用的参数，作用范围仅限于当前模块</li>
+<li>把module中所有的常数尽量用parameter定义，便于代码将来的可维护性</li>
+<li>标识符建议大写</li>
+<li>两个模块之间的parameter不互通</li>
+</ul>
+<h3 id="_3">实例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>加法器</p>
+</li>
+<li>
+<p>分频器</p>
+</li>
+<li>
+<p>万年历</p>
+</li>
+<li>
+<p>万年历——七段数码管</p>
+</li>
+<li>
+<p>状态机——自动售货即</p>
+</li>
+<li>三段式写法<ul>
+<li>定义的reg是多少位，就对应了生成的D触发器时多少位</li>
+<li>标准的三段式写法</li>
+<li>一段代表当前状态赋值</li>
+<li>一段表示下一状态如何跳变</li>
+<li>一段表示输出控制</li>
+</ul>
+</li>
+<li>一定要带上复位信号</li>
+<li>
+<p>先把输入和状态都找出来，再把状态转换图画出来</p>
+</li>
+<li>
+<p>状态机——序列机</p>
+</li>
+<li>
+<p>双端口ram</p>
+</li>
+<li>通常会用别人的IP厂商提供。</li>
+<li>有单口RAM和双口RAM</li>
+<li>小容量RAM可以直接用触发器阵列搭建，属于双口RAM，可支持同时读写，常用在FIFO中。</li>
+<li>端口、位宽、深度</li>
+<li>
+<p>generate...endgenerate语句块（mem[i]==addr_data）和直接写for循环的区别（mem[addr_w]=addr_data）。</p>
+<ul>
+<li>[]内最好是常量，变量会综合出一大部分的marks。</li>
+</ul>
+</li>
+<li>
+<p>流水线加法器</p>
+</li>
+<li>
+<p>组合逻辑都是在触发器中间的，每个地方的组合逻辑的延时最好基本相等，时钟频率就能做的更快。</p>
+</li>
+<li>
+<p>无符号乘法器</p>
+</li>
+<li>
+<p>有符号乘法器</p>
+</li>
+<li>
+<p>booth乘法器</p>
+</li>
+<li>
+<p>单0，仿真器会认识是32位的0.即32‘b0。</p>
+</li>
+<li>
+<p>简易处理器设计</p>
+</li>
+</ul>
+<h3 id="fifofifo">同步FIFO和异步FIFO——面试必问(再看)<a class="headerlink" href="#fifofifo" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>同步电路时序</p>
+</li>
+<li>
+<p>setup time建立时间T<sub>setup</sub>：数据在时钟沿之前必须的有效时间。因为触发器就是一堆mos管，需要驱动的信号保持一段时间的稳定。</p>
+</li>
+<li>hold time保持时间T<sub>hold</sub>:数据在时钟沿之后必须有效的时间。显而易见。</li>
+<li>系统所需要的稳定信号的事假那就是setup时间+hold时间</li>
+<li>传播延时：从时钟上升沿到达，到Q端和D端一致时的时间。<ul>
+<li>与触发器本身内部材料有关</li>
+<li>与clk模拟波从10%到90%的transition有关，即与时钟质量有关</li>
+<li>和输出负载有关</li>
+</ul>
+</li>
+<li>Set time:Tclk&gt; tcq+tlogic+tsetup。<ul>
+<li>clk大小需要比每个逻辑单元的延时都要长，最接近最长的就是关键路径，是她决定了clk的大小。</li>
+</ul>
+</li>
+<li>hold time ：因为在下一个clk来临之后，逻辑单元要保持一段时间（为了让下一个触发器可以利用这段时间的信号），保持的这段时间要大于下个触发器的Thold， 即tcq+tlogic&gt;thold。<ul>
+<li>hold的大小一般由最快的logic来决定，和setuptime相反。</li>
+</ul>
+</li>
+<li>如果有buf了。<ul>
+<li>Setup time:Tclk+Tbuf &gt; tcq+tlogic+tsetup。</li>
+<li>相当于在这一级增加了clk的大小。</li>
+<li>Hold time：tcq+tlogic&gt;thold+Tbuf。</li>
+<li>相当于在这一级增加了hold的大小。</li>
+</ul>
+</li>
+<li>
+<p>同步电路时序路径类型：</p>
+<ul>
+<li>输入到输出</li>
+<li>输入到寄存器</li>
+<li>输出到寄存器</li>
+<li><strong>寄存器到寄存器</strong></li>
+</ul>
+</li>
+<li>
+<p>其他时序检查</p>
+</li>
+<li>
+<p>最小时钟宽度</p>
+</li>
+<li>异步复位的recovery和removal.time<ul>
+<li>reset变为0和时钟上升沿之间的宽度，为防止错乱，要有宽度</li>
+</ul>
+</li>
+<li>
+<p>异步复位的最小宽度</p>
+<ul>
+<li>reset的最小保持宽度</li>
+</ul>
+</li>
+<li>
+<p>同步FIFO设计——先写进去的先读</p>
+</li>
+<li>
+<p>有点像栈的设计，有一个读指针和一个写指针，读指针和写指针除地址外，多划出一位最高位用来表示同步FIFO内部是否为empty或full。</p>
+</li>
+<li>当读指针或写指针到最顶端时，再加一最高位变为1，其余位变为零，指针指向最下方。</li>
+<li>
+<p>当读写地址完全一致的时候，表示RAM是空的。当写指针除了MSB外于读指针一样，MSB相反时，表示写指针比读指针快了一圈，输出full标志。</p>
+</li>
+<li>
+<p>跨时钟域问题</p>
+</li>
+<li>
+<p>存在哪些问题</p>
+<ul>
+<li>静态时序分析工具不能起作用</li>
+<li>比如setup time和hold time都不能用来分析跨时钟域的问题。</li>
+<li>电路会存在亚稳态 </li>
+<li>因为setuptime和holdtime无法确定，所以不发确保信号的顺序传导</li>
+</ul>
+</li>
+<li>解决方法一<ul>
+<li>当信号从低时钟频率传到高时钟频率时，可以采用触发器挡两拍，最多三拍。</li>
+<li>不能处理多比特同时变化的情况，只适合单比特输出。 </li>
+<li>可能会拿到稳定零的值，也可能是稳定的一，但肯定是稳定的信号。</li>
+</ul>
+</li>
+<li>
+<p>解决方法——握手协议 </p>
+<ul>
+<li>分为REQ信号、data信号和AWK信号。</li>
+<li>传送方给接收方先传递单比特REQ信号（通过挡两拍），接收方接收到之后开始接受data信号，这时候data肯定已经稳定了，接受完毕后给发送方传递AWK信号。之后开始递推传递下一个data信号。</li>
+</ul>
+</li>
+<li>
+<p>解决方法——异步FIFO</p>
+<ul>
+<li>可以处理任意位数、频率较高。适用于连续跨时钟域数据的传递。</li>
+<li>一个在读一个在写，所以可以写成FIFO</li>
+<li>地址控制</li>
+<li>地址比较用格雷码，减少多比特竞争</li>
+<li>ram用常规10进制计数器</li>
+<li>FIFO的地址格雷码gray=（bin&gt;&gt;1）^bin</li>
+<li>格雷码判断空满</li>
+<li>读地址于写地址完全一样时空。</li>
+<li>读地址于写地址最高两位不同，其余位数相同时为满。</li>
+<li>FIFO结构图</li>
+</ul>
+</li>
+</ul>
+<h3 id="dc">DC综合<a class="headerlink" href="#dc" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>综合是将行为级的RTL代码在工艺、面积、时序等约束下转化为对应的网表</p>
+</li>
+<li>
+<p>所需要的文件</p>
+</li>
+<li>RTL文件</li>
+<li>标准单元的库文件</li>
+<li>其他库文件。如IO库（就相当于SOC的接口等），IP库（比如DDR等接口协议等）等</li>
+<li>
+<p>综合工具——DC</p>
+</li>
+<li>
+<p>输出的文件</p>
+</li>
+<li>综合后的门级网表</li>
+<li>带时序约束信息的sdc文件（前两个是给后端的PandR）</li>
+<li>保留综合结果的ddc文件</li>
+<li>
+<p>其他一些后端需要的特殊配置，如dont_touch设置等</p>
+</li>
+<li>
+<p>两种启动方式</p>
+</li>
+<li>dc_shell</li>
+<li>
+<p>图形化</p>
+</li>
+<li>
+<p>DC打开时会运行当前目录下的.synopsys_dc.setup。一些统一的参数配置可以写在这个文件里。</p>
+</li>
+<li>
+<p>介绍</p>
+</li>
+<li>流程<ul>
+<li>设置综合环境——设置综合库文件——读取RTL——设置综合参数——设置约束文件——映射门级单元及优化——替换scanDFF（扫描链可不用 ）——检查综合结果并输出结果（门级网表netlist、sdc、ddc文件（前面设置的总和，可以通过加载ddc来跳过前面的准备阶段））</li>
+</ul>
+</li>
+<li>如何寻求帮助<ul>
+<li>man dc_command</li>
+<li>dc_command -help</li>
+</ul>
+</li>
+<li>设置综合环境<ul>
+<li>设置环境变量，如顶层的名字</li>
+<li>创建目录结构，rpt，out等文件夹</li>
+<li>制定临时文件存放目录</li>
+<li>设置一些自定义命令</li>
+</ul>
+</li>
+<li>制定综合的库文件<ul>
+<li>设置search_path(当综合工具读入RTL和库文件时，综合工具会从该指定的路径去寻找各种文件）,target_library（吧RTL映射成门级网表时参考的标准单元库文件），link_library(除了标准单元库文件target_library再加上IO库文件、IP库文件)，symbol_library（定义单元显示的图形库，没用，可不一定），gtech.db and standard.sldb分别包含了GTECH逻辑单元和基本DW，工具会自动加载(db文件都是库文件） 。</li>
+</ul>
+</li>
+<li>设置综合参数<ul>
+<li>和设计关系不大，一般是比较通用的设置</li>
+<li>通常在各个项目中是通用的</li>
+<li>主要包括编译的一些选项，连线、端口以及模块的命名的规范，比如是否有latch、是有包含三态门，是否允许出现一些assign初夏等等。</li>
+</ul>
+</li>
+<li>设置约束文件<ul>
+<li>DRC</li>
+<li>set_max_transition<ul>
+<li>比如信号从0到1变化的时间</li>
+</ul>
+</li>
+<li>set_max_fanout<ul>
+<li>一个信号能连接多少负载</li>
+</ul>
+</li>
+<li>时序约束</li>
+<li>create_clock</li>
+<li>set_input_delay针对输入IN到clk之间的路径（上面同步时序路径中提到的）</li>
+<li>set_output_delay针对clk到out之间的路径（上面同步时序路径中提到的）</li>
+<li>会先考虑时钟，在考虑面积。一定会满足时钟，再去尽量满足面积</li>
+<li>面积约束</li>
+<li>set_max_area</li>
+<li>在设置约束文件中一些函数的区别</li>
+<li>get_desigin——模块名</li>
+<li>get_clocks——时钟</li>
+<li>get_pins——本模块下的实例化的子模块的接口</li>
+<li>get_ports——当前模块的端口 </li>
+<li>get_cell——实例化模块时实例的名字</li>
+<li>时钟的创建，需要知道在哪一个端口创建时钟，以及时钟的频率，相位等。还要知道时钟之间的相互关系。</li>
+<li>撰写</li>
+<li>需要设置内部transition约束，输入输出的延时控制，输入输出的驱动能力/负载，以及false_path。</li>
+<li>撰写</li>
+<li>set_input_delay</li>
+<li>针对输入IN到CLK之间的delay</li>
+<li>set_output_delay</li>
+<li>针对输出OUT和CLK之间的delay</li>
+<li>时钟频率针对CLK的触发器与触发器之间的路径 </li>
+<li>设置时钟的不确定性，skew等</li>
+<li>DC中的时钟均为理想时钟，驱动能力无限，不考虑fanout的问题，也不考虑hold time违例的问题。</li>
+</ul>
+</li>
+<li>映射门级单元及优化<ul>
+<li>通过compile吧RTL映射成门级网表同时优化里面的逻辑</li>
+<li>一般在compile完成后可以用-inc在compile基础上进一步优化</li>
+<li>utra更好，但要额外的前</li>
+</ul>
+</li>
+<li>替换带scan触发器<ul>
+<li>在使用compile时会加上-scan参数会把所有的触发器替换成带scan端口的触发器</li>
+<li>主要为DEF做准备</li>
+<li>面积会增大20%</li>
+</ul>
+</li>
+<li>检查综合结果并输出报告<ul>
+<li>check_design 检查设计是否存在隐患</li>
+<li>check_timing  检查设计是否有路径没有被约束</li>
+<li>report_qor  查看整体综合后的summary结果</li>
+<li>report_area  查看综合后得到的面积</li>
+<li>report_timing  时序信息</li>
+<li>wtring_file -f verilog  写出综合后的网表给后端</li>
+<li>write_sdc 写出约束文件给后端</li>
+<li>write_file -f doc  保存当前综合数据data base。下次可以直接load后查看结果。不需要从新综合。</li>
+</ul>
+</li>
+<li>
+<p>一些常见的DC命令 </p>
+<ul>
+<li>history 可以查看之前用过的命令</li>
+<li>change_names 可以改变整个网表的命名规则一verilog语法格式命名</li>
+<li>help *time* 可以显示出所有包含time的dc命令</li>
+<li>set_critical_range 可以对次关键路径进行优化</li>
+</ul>
+</li>
+<li>
+<p>工艺库文件结构</p>
+</li>
+<li>
+<p>Library库的位置：/home/marvin/simc_lib/V2pob</p>
+</li>
+<li>
+<p>doc文件：文档，保护文件库的一些具体说明，包含所有标准单元的基本说明，比如说逻辑真值表，面积，每个端口的功耗，延时，漏电流等</p>
+</li>
+<li>
+<p>verilog model文件： 以<strong>仿真</strong>工具能识别的格式定义每一个标准单元的模型，以及其延时信息，时序检查定义等。按照是否带标准单元延时信息可分为两种。按照是否带电源端口可分为两种。</p>
+</li>
+<li>
+<p>综合库文件： 和dos文档的内容一样，不过是一种能被综合工具识别形式的写下的。按照是否面向对象分为.lib和.db</p>
+</li>
+<li>
+<p>其他类文件</p>
+<ul>
+<li>Techfile中主要是后端需要用到的物理连线电容电阻，金属通孔等各种定义信息。</li>
+<li>LEF主要是标准单元的物理性质以及一些pin的分布等信息。主要用于布局布线</li>
+<li>gds主要是标准单元的具体版图信息。</li>
+</ul>
+</li>
+</ul>
+<p>​   </p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
