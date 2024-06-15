@@ -1,0 +1,41 @@
+site_name: Chin's Blog
+theme:
+  name: material
+  language: zh
+  hljs_languages:
+    - yaml
+markdown_extensions:
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      linenums: true
+      anchor_linenums: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+nav:
+  - 主页: index.md
+  - Web:
+    - Web/使用MkDocs搭建个人博客.md
+    - Web/博客园设置Silence主题.md
+  - Embed:
+    - Embed/AVR汇编（一）：搭建交叉编译环境.md
+    - Embed/AVR汇编（二）：AVR架构介绍.md
+    - Embed/AVR汇编（三）：寻址方式.md
+    - Embed/AVR汇编（四）：数据传送指令.md
+    - Embed/AVR汇编（五）：算术和逻辑指令.md
+    - Embed/AVR汇编（六）：分支指令.md
+    - Embed/AVR汇编（七）：位操作和MCU控制指令.md
+    - Embed/ATtiny88初体验（一）：点灯.md
+    - Embed/ATtiny88初体验（二）：呼吸灯.md
+    - Embed/ATtiny88初体验（三）：串口.md
+    - Embed/ATtiny88初体验（四）：看门狗.md
+    - Embed/ATtiny88初体验（五）：ADC.md
+    - Embed/ATtiny88初体验（六）：SPI.md
+    - Embed/ATtiny88初体验（七）：TWI.md
+
